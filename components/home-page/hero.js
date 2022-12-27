@@ -10,8 +10,8 @@ const Hero = () => {
           priority={true}
           src="/images/site/alex.jpg"
           alt="An image showing Alex"
-          width={500}
-          height={500}
+          width={800}
+          height={800}
         />
       </div>
       <h1>Hi, I am Alex</h1>
