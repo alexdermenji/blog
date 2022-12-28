@@ -1,9 +1,18 @@
+import Head from "next/head";
 import React from "react";
 import PostContent from "../../components/posts/post-detail/post-content";
 import { getPostData, getPostsFiles } from "../../lib/posts-util";
 
 const PostDetailPage = ({ post }) => {
-  return <PostContent post={post} />;
+  return (
+    <>
+      <Head>
+        <title>{post.title}</title>
+        <meta name="description" content={post.excerpt} />
+      </Head>
+      <PostContent post={post} />;
+    </>
+  );
 };
 
 export function getStaticProps(context) {
@@ -29,8 +38,5 @@ export function getStaticPaths() {
     fallback: false,
   };
 }
-  
-
-
 
 export default PostDetailPage;
