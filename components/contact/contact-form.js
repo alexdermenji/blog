@@ -2,6 +2,26 @@ import React from "react";
 import classes from "./contact-form.module.css";
 
 const ContactForm = () => {
+    const [enteredEmail, setEnteredEmail] = React.useState("");
+    const [enteredName, setEnteredName] = React.useState("");
+    const [enteredMessage, setEnteredMessage] = React.useState("");
+
+    const sendMessageHandler = (event) => {
+      event.preventDefault();
+      // send a request to API
+      fetch("/api/contact", {
+        method: "POST",
+        body: JSON.stringify({
+          email: enteredEmail,
+          name: enteredName,
+          message: enteredMessage,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+    };
+                        
   return (
     <section className={classes.contact}>
       <h1>How can I help you?</h1>
